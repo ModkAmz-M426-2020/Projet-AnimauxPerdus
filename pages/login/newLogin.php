@@ -21,11 +21,39 @@
     <body>
     <form method="POST" action="accueil_2.php">
         <fieldset>
+            <h1> Inscription </h1>
             <!--image rond -->
             <table>
-               <tr>
-                   
+               <tr><span class="required">*</span><label>Pseudo</label></tr>
+               <tr> <input type="text" name="pseudo" required/></tr>
+
+               <tr><span class="required">*</span><label>E-mail</label></tr>
+               <tr><input type="email" name="mail" required/></tr>
+
+               <tr> <label>Numéro de téléphone</label></tr>
+               <tr><input type="text" name="noTel" required/></tr>
+
+
+               <tr> 
+                   <td> <label>Ville </label></td>
+                    <td> <label>NPA </label></td>
                </tr>
+               <tr>
+                <td> <input type="text" name="ville" required/></td>
+                <td> <input type="text" name="npa" required/></td>
+               </tr>
+
+               <tr><span class="required">*</span><label>Mot de passe</label></tr>
+               <tr><input type="password" name="psw" required/></tr>
+              
+              
+               <tr><span class="required">*</span><label>Vérification du mot de passe</label></tr>
+              <tr><input type="password" name="verifPsw" required/></tr>
+              
+              <tr>
+                <input type="submit" name="valider" value="Valider"/>
+               </tr>
+              
             </table>
         </fieldset>
         </form>
