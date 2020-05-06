@@ -26,11 +26,23 @@
     <body>
         <main>
           <header>
-            <img class="logo" src=""/>
-            <div class="textHeader">
-              <h1>Nom du site</h1>
-              <p class="slogan">Phrase slogan</p>
+            <div class="groupHeader">
+              <img class="logo" src="img/logo.png"/>
+              <div class="textHeader">
+                <h1>Nom du site</h1>
+                <p class="slogan">Phrase slogan</p>
+              </div>
             </div>
+
+            <div class="groupHeader">
+              <!--
+                <?PHP
+                 //Si on est connecté, afficher le input suivant
+              ?>
+             -->
+              <a id="nouvelleAnnonce" class="iconeLien"> <img src="img/nouveau.png" \> </a>
+              <a id="login" class="iconeLien"> <img src="img/login.png" \> </a>
+            <div id="group1Header">
           </header>
           <nav>
             <select type="select" name="etat" id="etat">
@@ -69,16 +81,74 @@
           ?>
          -->
             <div class="ligneArticles">
-              <div class="article"></div>
-              <div class="article"></div>
+              <div class="article">
+                <div class="groupArticle">
+                  <h2>Titre annonce 1</h2>
+                  <!--
+                  <?PHP
+                    //si l'annonce possède une photo, afficher la photo, sinon afficher la description
+                  ?>
+                 -->
+                 <p class="descriptionAnnonce">Blabla</p>
+               </div>
+               <a class="lienAnnonce" href=""> voir l'annonce </a>
+              </div>
+              <div class="article">
+                <div class="groupArticle">
+                  <h2>Titre annonce 2</h2>
+                  <!--
+                  <?PHP
+                    //si l'annonce possède une photo, afficher la photo, sinon afficher la description
+                  ?>
+                 -->
+                 <img class="imageAnnonce" src="img/chat1.png"/>
+                </div>
+               <a class="lienAnnonce" href=""> voir l'annonce </a>
+              </div>
             </div>
+
             <div class="ligneArticles">
-              <div class="article"></div>
-              <div class="article"></div>
+              <div class="article">
+                <div class="groupArticle">
+                  <h2>Titre annonce 3</h2>
+                  <!--
+                  <?PHP
+                    //si l'annonce possède une photo, afficher la photo, sinon afficher la description
+                  ?>
+                 -->
+                 <p class="descriptionAnnonce">Blabla</p>
+               </div>
+               <a class="lienAnnonce" href=""> voir l'annonce </a>
+              </div>
+              <div class="article">
+                <div class="groupArticle">
+                  <h2>Titre annonce 4</h2>
+                  <!--
+                  <?PHP
+                    //si l'annonce possède une photo, afficher la photo, sinon afficher la description
+                  ?>
+                 -->
+                 <p class="descriptionAnnonce">Blabla</p>
+                 </div>
+               <a class="lienAnnonce" href=""> voir l'annonce </a>
+              </div>
             </div>
+
             <div class="ligneArticles">
-              <div class="article"></div>
+              <div class="article">
+                <div class="groupArticle">
+                  <h2>Titre annonce 5</h2>
+                  <!--
+                  <?PHP
+                    //si l'annonce possède une photo, afficher la photo, sinon afficher la description
+                  ?>
+                 -->
+                 <p class="descriptionAnnonce">Blabla</p>
+               </div>
+               <a class="lienAnnonce" href=""> voir l'annonce </a>
+              </div>
             </div>
+
           </div>
         </main>
     </body>
