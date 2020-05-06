@@ -15,50 +15,73 @@
         <title>New Account</title>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="/projects/Proj-AnimauxPerdu/css/loginCss.css" rel="stylesheet" type="text/css"/>
+        <link href="css\loginCss.css" rel="stylesheet" type="text/css"/>
         
     </head>
     <body>
     <form method="POST" action="accueil_2.php">
         <fieldset>
-            <h1> Inscription </h1>
+        <h1> Inscription </h1>
             <!--image rond -->
             <table>
-               <tr><span class="required">*</span><label>Pseudo</label></tr>
-               <tr> <input type="text" name="pseudo" required/></tr>
+                <tr>
+                    <span class="required">*</span><label>Pseudo</label>
+                    </br>
+                    <input type="text" name="pseudo" required/>
+                </tr>
+                </br>
+                </br>
+                <tr>
+                    <span class="required">*</span><label>E-mail</label>
+                    </br>
+                    <input type="email" name="mail" required/>
+                </tr>
+                </br>
+                </br>
+                <tr>
+                    <label>Téléphone</label></br>
+                    <input type="text" name="noTel " required/>
+                </tr>
+                </br>
+                </br>
 
-               <tr><span class="required">*</span><label>E-mail</label></tr>
-               <tr><input type="email" name="mail" required/></tr>
+                <tr>
+                    <label>Ville </label>
+                    </br>
+                    <input type="text" name="ville " required/>
+                </tr>
+                </br>
+                </br>
+                <tr>
+                    <label>NPA </label>
+                    </br>
+                    <input type="text" name="npa " required/>
+                </tr>
+                </br>
+                </br>
+                <tr>
+                    <span class="required">*</span><label>Mot de passe</label>
+                    </br>
+                    <input type="password" name="psw " required/>
+                </tr>
+                </br>
+                </br>
 
-               <tr> <label>Numéro de téléphone</label></tr>
-               <tr><input type="text" name="noTel" required/></tr>
+                <tr><span class="required">*</span><label>Vérifier le mot de passe</label>
+                    </br>
+                    <input type="password" name="verifPsw" required/>
+                </tr>
+                </br>
+                </br>
+                <tr>
+                    <input type="submit" name="valider" value="Valider" />
+                </tr>
 
-
-               <tr> 
-                   <td> <label>Ville </label></td>
-                    <td> <label>NPA </label></td>
-               </tr>
-               <tr>
-                <td> <input type="text" name="ville" required/></td>
-                <td> <input type="text" name="npa" required/></td>
-               </tr>
-
-               <tr><span class="required">*</span><label>Mot de passe</label></tr>
-               <tr><input type="password" name="psw" required/></tr>
-              
-              
-               <tr><span class="required">*</span><label>Vérification du mot de passe</label></tr>
-              <tr><input type="password" name="verifPsw" required/></tr>
-              
-              <tr>
-                <input type="submit" name="valider" value="Valider"/>
-               </tr>
-              
             </table>
         </fieldset>
-        </form>
-        
-    </body>
-  <!-- <script></script> -->
-</html>
+    </form>
 
+</body>
+<!-- <script></script> -->
+
+</html>

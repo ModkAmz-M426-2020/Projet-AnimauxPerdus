@@ -1,7 +1,36 @@
-
-body{
+@import url('https://fonts.googleapis.com/css?family=Bitter&display=swap');
+body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: pink;
+    background-color: #D0D0D0;
+}
+
+fieldset {
+    background-color: #FCFCFC;
+    border: none;
+    border-radius: 22px;
+    box-shadow: 10px 10px 0px #959595;
+}
+
+.required {
+    color: red;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="password"] {
+    width: auto;
+    height: 25px;
+    border-radius: 10px;
+    outline: none;
+    border: solid #D0D0D0 0.3px;
+    box-shadow: 5px 5px 5px #959595;
+    /* soit couleur, soit ombrage*/
+    /* background-color: lavender;*/
+}
+
+::placeholder {
+    color: #6B6B6B;
 }

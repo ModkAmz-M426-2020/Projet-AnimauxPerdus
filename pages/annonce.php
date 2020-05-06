@@ -20,14 +20,14 @@
     <body>
         <form method="POST" action="accueil_2.php">
         <fieldset>
-            <table>
+        <table>
                 <tr>
-                <td><span class="required">*</span><label>Titre de l'annonce : </label></td>
-                    <td colspan="3"><input type="text" name="titre" placeholder="ex: Bulldog trouvé à Genève" require="required"/></td>
+                    <td><span class="required">*</span><label>Titre de l'annonce : </label></td>
+                    <td colspan="3"><input type="text" class="title" name="titre" placeholder=" Ex: Bulldog trouvé à Genève" require="required" /></td>
                 </tr>
                 <tr>
                     <td><span class="required">*</span><label for="perdu">Perdu</label><input type="radio" name="etat" value="perdu" id="perdu" require="required" checked/></td>
-                    <td colspan="3"><span class="required">*</span><label for="trouve">Trouvé</label><input type="radio" name="etat" value="trouve" id="trouve" require="required"/></td>
+                    <td colspan="3"><span class="required">*</span><label for="trouve">Trouvé</label><input type="radio" name="etat" value="trouve" id="trouve" require="required" /></td>
                 </tr>
                 <tr>
                     <td><span class="required">*</span><label>Espèce : </label></td>
@@ -44,13 +44,13 @@
                 <tr>
                     <td><label> Tattoué : </label></td>
                     <td><label for="oui">Oui</label><input type="radio" name="tatoo" id="oui" checked/> </td>
-                    <td><label for="non">Non</label><input type="radio" name="tatoo" id="non"/> </td>
-                    <td><label for="aucun">Ne sais pas</label><input type="radio" name="tatoo" id="aucun"/> </td>
+                    <td><label for="non">Non</label><input type="radio" name="tatoo" id="non" /> </td>
+                    <td><label for="aucun">Ne sais pas</label><input type="radio" name="tatoo" id="aucun" /> </td>
                 </tr>
                 <tr>
-                    <td><span class="required">*</span><label for="ville">Ville : </label><input type="text" id="ville" name="ville" placeholder="Genève"/></td>
-                    <td><span class="required">*</span><label for="npa">NPA : </label><input type="text" id="npa"  name="npa" placeholder="1202"/></td>
-                    <td colspan="2"><span class="required">*</span><label for="date">Date : </label><input type="date" id="date"  name="date" placeholder="jj/mm/aaaa"/></td>
+                    <td><span class="required">*</span><label for="ville">Ville : </label><input type="text" id="ville" name="ville" placeholder="Genève" /></td>
+                    <td><span class="required">*</span><label for="npa">NPA : </label><input type="text" id="npa" name="npa" placeholder="1202" /></td>
+                    <td colspan="2"><span class="required">*</span><label for="date">Date : </label><input type="date" id="date" name="date" placeholder="jj/mm/aaaa" /></td>
                 </tr>
                 <tr>
                     <td><span class="required">*</span><label>Description : </label></td>

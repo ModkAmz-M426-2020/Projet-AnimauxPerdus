@@ -15,33 +15,42 @@
         <title> Login exist</title>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="/projects/Proj-AnimauxPerdu/css/loginCss.css" rel="stylesheet" type="text/css"/>
+        <link href="css\loginCss.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <h1>test</h1>
-        <form method="POST" action="accueil_2.php">
+    <form method="POST" action="accueil_2.php">
         <fieldset>
             <h1> Connexion </h1>
             <!--image rond -->
             <table>
-                <tr><span class="required">*</span><label>Pseudo</label></tr>
-               <tr> <input type="text" name="pseudo" required/></tr>
+                <tr>
+                    <span class="required">*</span><label>Pseudo</label>
+                    </br>
+                    <input type="text" name="pseudo" required/>
+                </tr>
+                </br>
+                </br>
+                <tr>
+                </tr><span class="required">*</span><label>Mot de passe</label>
+                </br>
+                <input type="password" name="psw" required/>
+                </tr>
+                </br>
+                </br>
+                <tr>
+                    <input type="submit" name="submit" value="Connexion" />
+                </tr>
+                </br>
+                </br>
+                <tr>
+                    <a href="newLogin.php">Créer un compte</a>
+                </tr>
 
-               <tr><span class="required">*</span><label>Mot de passe</label></tr>
-               <tr><input type="password" name="psw" required/></tr>
-               
-               <tr>
-                <input type="submit" name="submit" value="Connexion"/>
-               </tr>
-               <tr>
-                <a href="newLogin.php" >Créer un compte</a>
-               </tr>
-              
             </table>
         </fieldset>
-        </form>
-        
-    </body>
-  <!-- <script></script> -->
-</html>
+    </form>
 
+</body>
+<!-- <script></script> -->
+
+</html>
