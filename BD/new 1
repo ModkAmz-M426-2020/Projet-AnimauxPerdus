@@ -1,0 +1,41 @@
+//La méthode insertion début, ajoute un élément au début de la liste, et met l'index sur ce nouvel élément.
+
+	void insertion_debut(int var) {
+		debut();
+		element * n = new element;
+		n->precedent = NULL;
+		n->suivant = index;
+		index = n;
+	}
+	
+	
+//La méthode supprimer fin, supprime le dernier élément de la liste et déplace l'index au dernier élément de la liste.
+
+	void supprimer_fin() {
+		fin();
+		index = index->precedent;
+		delete index->suivant;
+		index->suivant = NULL;
+	}
+	
+	1)
+	Début addFirst(Noeud head, Nombre value): Noeud
+	
+	Fin addFirst
+	
+	
+	2)
+	Début remove(Noeud head, Nombre value)
+	
+	Fin remove
+	
+	
+	3)
+	Début addAtRightPosition(Noeud head, Nombre value)
+	
+	Fin addAtRightPosition
+	
+	
+	4)
+	Avantages :
+	Inconvénients :
