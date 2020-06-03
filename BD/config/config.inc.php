@@ -1,0 +1,8 @@
+<?php
+
+// DECLARATION VARIABLE POUR BD ANNONCE
+
+$SERVERNAME = "localhost";
+$DATABASENAME = "annonce";
+$USERNAME = "root";
+$PASSWORD = "";

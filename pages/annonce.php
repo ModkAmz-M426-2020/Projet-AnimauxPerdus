@@ -8,9 +8,21 @@
  * 
  * Date: 26.04.2020
  -->
- <!DOCTYPE html>
+ <?php
+ // include marche ou pas ? ne peux pas tester
+ include 'config.inc.php';
+ try {
+     $connexion = new PDO("mysql:host=$SERVERNAME;dbname=$DATABASENAME;charset=utf8", $USERNAME, $PASSWORD);
 
-<html lang="fr">
+ $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+ echo "connexion marche avec succès";
+    } catch (PDOException $th) {
+     //throw $th;
+     echo "connexion erreur ";
+ } 
+ ?>
+ <!DOCTYPE html>
+  <html lang="fr">
     <head>
         <title>Formulaire Annonce</title>
         <meta charset="UTF-8"/>
@@ -37,6 +49,7 @@
                             <option>Chat</option>
                             <option>Rongeurs</option>
                             <option>Oiseaux</option>
+                            <!-- Préciser avec un textbox???? -->
                             <option>Autre</option>
                         </select>
                     </td>
@@ -64,6 +77,12 @@
                 <tr>
                     <td><span class="required">*</span><label>Contact : </label></td>
                     <td colspan="3"><textarea rows="5" cols="50"></textarea></td>
+                </tr>
+                <tr>
+                    <!-- VISUEL NON ACCESSIBLE ALORS TEST SANS VISUEL-->
+                    <td></td>
+                    <td colspan="2"><input type="submit" name="valider" value="Envoyer"></td>
+                    
                 </tr>
             </table>
         </fieldset>

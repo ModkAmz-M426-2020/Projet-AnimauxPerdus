@@ -1,18 +1,31 @@
-@import url('https://fonts.googleapis.com/css?family=Bitter&display=swap');
+/*
+- la taille du fieldset
+-  button submit 
+- visuel de l'espèce
+
+
+*/
+
+@import url("https://fonts.googleapis.com/css?family=Bitter&display=swap");
 body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: #D0D0D0;
+    background-color: #d0d0d0;
 }
 
 form {
-    width: 80%;
-    height: 95%;
+    width: 500px;
+    height: 250px;
+    position: fixed;
+    top: 25%;
+    left: 33%;
+    margin-top: -100px;
+    margin-left: -50px;
 }
 
 fieldset {
-    background-color: #FCFCFC;
+    background-color: #fcfcfc;
     border: none;
     border-radius: 22px;
     box-shadow: 10px 10px 0px #959595;
@@ -34,20 +47,29 @@ input[type="text"],
 input[type="date"],
 input[type="email"],
 input[type="password"] {
-    width: auto;
+    width: 100px;
     height: 25px;
     border-radius: 10px;
     outline: none;
-    border: solid #D0D0D0 0.3px;
+    border: solid #d0d0d0 0.3px;
     box-shadow: 5px 5px 5px #959595;
     /* soit couleur, soit ombrage*/
     /* background-color: lavender;*/
 }
 
-::placeholder {
-    color: #6B6B6B;
+input[type="submit"] {
+    width: 200px;
+    border-radius: 10px;
+    color: black;
+    background-color: #fcfcfc;
+    outline: none;
+    border: solid #d0d0d0 0.3px;
+    box-shadow: 5px 5px 5px #959595;
 }
 
+::placeholder {
+    color: #6b6b6b;
+}
 
 /* ne marche pas le width*/
 
