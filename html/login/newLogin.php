@@ -18,12 +18,27 @@ $mail = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
 $noTel = filter_input(INPUT_POST, "tel", FILTER_SANITIZE_STRING);
 $ville = filter_input(INPUT_POST, "ville", FILTER_SANITIZE_STRING);
 $npa = filter_input(INPUT_POST, "npa", FILTER_SANITIZE_STRING);
+$pswVerif = filter_input(INPUT_POST, "psw", FILTER_SANITIZE_STRING);
+
+
 
 if (isset($_POST["confirmer"])) {
-    //echo $_FILES["imgAnimal"]["tmp_name"];
-    insertLogin($pseudo, $psw, $mail, $noTel, $ville, $npa);
 
-    echo "ca marche !!!";
+    //echo $_FILES["imgAnimal"]["tmp_name"];
+    if ($pseudo == "" || $mail == "" || $pswVerif == "") {
+        $erreur =  "Veuillez remplir tous les champs obligatoires.";
+    } else if (strlen($psw) < 8) {
+        $erreur =  " Veuillez mettre un mot de passe avec au min. 8 caractère ! ";
+    } else if (strlen($psw) >= 8) {
+        // les mdp ne sont pas pareil
+        if ($_POST["psw"] != $_POST["pswVerif"]) {
+            $erreur = "Mot de passe et vérification non identiques";
+        } else {
+            // mdp pareil , redirection et enregistre l'user dans la bd
+            insertUser($pseudo, $psw, $mail, $noTel, $ville, $npa);
+            header("Location: ../../index.php");
+        }
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -37,14 +52,26 @@ if (isset($_POST["confirmer"])) {
     <link href="\projects\Projet-AnimauxPerdus\css\loginCss.css" rel="stylesheet" type="text/css" />
 
 </head>
+<style>
+    h3 {
+        color: red;
+        font-size: 15px;
+    }
+</style>
 
 <body>
-    <form method="POST" action="accueil_2.php">
+    <form method="POST" action="newLogin.php">
         <fieldset>
             <!--image rond -->
             <table>
                 <tr>
-                    <img src="img\loginImg.jpg" alt="login" width="" />
+                    <?php
+                    // s'il y a une erreur 
+                    if (!empty($erreur)) {
+                        echo "<h3>" . $erreur .  "</h3>";
+                    }
+
+                    ?>
                 </tr>
                 <tr>
                     <td><span class="required">*</span><label for="pseudo">Pseudo : </label><input type="text" id="pseudo" name="pseudo" placeholder="Horushia" /></td>

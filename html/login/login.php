@@ -8,6 +8,23 @@
  * 
  * Date: 26.04.2020
  -->
+<?php
+include '..\script\backend.php';
+$pseudo = filter_input(INPUT_POST, "pseudo", FILTER_SANITIZE_STRING);
+$psw = filter_input(INPUT_POST, "psw", FILTER_SANITIZE_STRING);
+
+if (isset($_POST["connexion"])) {
+    $erreur;
+    $result = connectLogin($pseudo, $psw);
+    if (empty($result)) {
+        $erreur =  "Votre nom d'utilisateur ou mot de passe est incorrecte.";
+    } else if (!empty($result)) {
+
+        header("Location: ../../index.php");
+    }
+}
+
+?>
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -19,15 +36,27 @@
     <link href="\projects\Projet-AnimauxPerdus\css\loginCss.css" rel="stylesheet" type="text/css" />
 
 </head>
+<style>
+    h3 {
+        color: red;
+        font-size: 15px;
+    }
+</style>
 
 <body>
-    <form method="POST" action="accueil_2.php">
+    <form method="POST" action="login.php">
         <fieldset>
-
-            <!--image rond -->
             <table>
+                <!--image rond -->
                 <tr>
-                    <img src="img\loginImg.jpg" alt="login" width="" />
+                <tr>
+                    <?php
+                    // s'il y a une erreur 
+                    if (!empty($erreur)) {
+                        echo "<h3>" . $erreur .  "</h3>";
+                    }
+                    ?>
+                </tr>
                 </tr>
                 <tr>
                     <td><span class="required">*</span><label for="pseudo">Pseudo : </label><input type="text" id="pseudo" name="pseudo" placeholder="Horushia" /></td>
@@ -36,7 +65,6 @@
                 <tr>
                     <td><span class="required">*</span><label for="psw">Mot de passe : </label><input type="password" id="psw" name="psw" placeholder="8 caractère min." /></td>
                 </tr>
-
                 <tr>
                     <td>
                         <input type="submit" name="connexion" value="connexion" />
@@ -44,7 +72,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <a href="html\login\newLogin.php">Créer un compte</a>
+                        <a href="newLogin.php">Créer un compte</a>
                     </td>
                 </tr>
             </table>

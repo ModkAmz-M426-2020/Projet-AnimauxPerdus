@@ -15,7 +15,6 @@ include 'script\backend.php';
 $statut = filter_input(INPUT_POST, "etat", FILTER_VALIDATE_BOOLEAN);
 $ville = filter_input(INPUT_POST, "ville", FILTER_SANITIZE_STRING);
 $npa = filter_input(INPUT_POST, "npa", FILTER_SANITIZE_STRING);
-$photo = filter_input(INPUT_POST, "imgAnimal", FILTER_SANITIZE_STRING);
 $tatoue = filter_input(INPUT_POST, "tatoo", FILTER_SANITIZE_STRING);
 $description = filter_input(INPUT_POST, "description", FILTER_SANITIZE_STRING);
 $titre = filter_input(INPUT_POST, "titre", FILTER_SANITIZE_STRING);
@@ -23,10 +22,18 @@ $espece = filter_input(INPUT_POST, "espece", FILTER_SANITIZE_STRING);
 $date = filter_input(INPUT_POST, "date", FILTER_SANITIZE_STRING);
 
 if (isset($_POST["envoyer"])) {
-    echo $_FILES['imgAnimal']["tmp_name"];
-    insertAnnonce($statut, $ville, $npa, $_FILES['imgAnimal']["tmp_name"], $tatoue, $description, $titre, $espece, $date);
+    $file = $_FILES['imgAnimal'];
+    $file_tmp_name = $file["tmp_name"];
+    $file_name = $file["name"];
 
-    echo "ca marche";
+    insertAnnonce($statut, $ville, $npa, "./img/$file_name", $tatoue, $description, $titre, $espece, $date);
+
+    // max size : 5M, see php.ini
+    if ($file["error"] == UPLOAD_ERR_OK) {
+        move_uploaded_file($file_tmp_name, "../img/$file_name");
+    }
+
+    header("Location: ../index.php");
 }
 ?>
 <!DOCTYPE html>
@@ -41,7 +48,7 @@ if (isset($_POST["envoyer"])) {
 </head>
 
 <body>
-    <form method="POST" action="annonce.php" enctype="multipart/form-data">
+    <form method="POST" action="creerAnnonce.php" enctype="multipart/form-data">
         <fieldset>
             <table>
                 <tr>
