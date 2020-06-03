@@ -13,7 +13,7 @@ try {
     echo "Connection failed :" . $ex->getMessage();
 }
 
-// inert annonce dans DB
+// insert annonce dans DB
 function insertAnnonce($statut, $ville, $npa, $urlPhoto, $tatoue, $describe, $titre, $espece, $date)
 {
     global $conn;
@@ -38,6 +38,7 @@ function insertAnnonce($statut, $ville, $npa, $urlPhoto, $tatoue, $describe, $ti
         return false;
     }
 }
+
 // création du compte
 function insertLogin($pseudo, $psw, $email, $noTel,  $ville, $npa)
 {
@@ -65,12 +66,112 @@ function connectLogin(Type $var = null)
     // select where user == $user
 }
 // Aliya
-function displayAnnonce(Type $var = null)
+function displayAnnonces()
 {
-    # code...
+  //récupérer le tableau des annonces
+  $annonces = recoverAnnonce();
+
+  //Trouver le nombre d'annonces
+  $nbAnnonces = count($annonces);
+
+    for($i = 0; $i<$nbAnnonces; $i++){
+      //si l'annonce est paire, ouvrir une nouvelle ligne
+      if($i % 2 = 0){
+        echo "<div class=<\"ligneArticles\">";
+      }
+
+      //Afficher l'annonce
+      echo "<div class=\"article\">";
+      echo "<div class=\"groupArticle\">"
+      $annonce = $annonces[$i];
+        //Afficher le titre
+        echo "<h2>".$annonce[0]."</h2>";
+        //si l'annonce possède une photo, afficher la photo, sinon afficher la description
+        if($annonce[1] != null && $annonce[1] != ""){
+          echo "<img class=\"imageAnnonce\" src=\"".$annonce[1]."\"/>";
+        }
+        else{
+          echo "<p class=\"descriptionAnnonce\">".$annonce[2]."</p>";
+        }
+
+      echo "</div>";
+      echo "<a class=\"lienAnnonce\" href=\"\"> voir l'annonce </a>";
+      echo "</div>";
+
+      //si l'annonce est impaire ou que c'est la dernière, fermer la nouvelle ligne
+      if($i % 2 != 0 || $i = $nbAnnonces-1){
+        echo "</div>";
+      }
+    }
 }
 // pour améliorer le site
 function deleteAnnonce(Type $var = null)
 {
     # code...
 }
+
+// récupérer les annonces
+function recoverAnnonce()
+{
+    global $conn;
+
+    try {
+        $req = $conn->prepare("SELECT titre, image, description from animal");
+
+        $req->execute();
+        $result = $req->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    } catch (PDOException $e) {
+        throw new Exception($e->getMessage(), $e->getCode());
+        return false;
+    }
+}
+
+
+
+/*
+//Trouver et enregistrer le nombre d'annonces
+$reqNbAnnonces = "SELECT count(*) from animal";
+$resultNbAnnonces = mysqli_query($mysql, $reqNbAnnonces);
+while ($row = mysqli_fetch_row($resultNbAnnonces)) {
+  $nbAnnonces = $row[0];
+}
+
+//Récupérer les id des annonces dans la BD
+$reqAnnonces = "SELECT titre, photo, description from animal";
+$resultAnnonces = mysqli_query($mysql, $reqAnnonces);
+
+
+while ($annonce = mysqli_fetch_object($resultAnnonces)) {
+  //pour chaque annonce
+  for($i = 0; $i<$nbAnnonces; $i++){
+    //si l'annonce est paire, ouvrir une nouvelle ligne
+    if($i % 2 = 0){
+      echo "<div class=<\"ligneArticles\">";
+    }
+
+    //Afficher l'annonce
+    echo "<div class=\"article\">";
+    echo "<div class=\"groupArticle\">"
+    while ($row = mysqli_fetch_row($annonce[$i])) {
+      //Afficher le titre
+      echo "<h2>".$row[0]."</h2>";
+      //si l'annonce possède une photo, afficher la photo, sinon afficher la description
+      if($row[1] != null && $row[1] != ""){
+        echo "<img class=\"imageAnnonce\" src=\"".$row[1]."\"/>";
+      }
+      else{
+        echo "<p class=\"descriptionAnnonce\">".$row[2]."</p>";
+      }
+    }
+    echo "</div>";
+    echo "<a class=\"lienAnnonce\" href=\"\"> voir l'annonce </a>";
+    echo "</div>";
+
+
+    //si l'annonce est impaire ou que c'est la dernière, fermer la nouvelle ligne
+    if($i % 2 != 0 || $i = $nbAnnonces-1){
+      echo "</div>";
+    }
+  }
+}*/
